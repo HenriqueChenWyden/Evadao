@@ -42,6 +42,6 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview() {
     EvadãoTheme {
-        Greeting("Bem-vindo, Hugo atropelador de ciclistas!")
+        Greeting("Hugo atropelador de ciclistas!")
     }
 }
