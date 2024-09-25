@@ -1,24 +1,36 @@
 package br.com.evadao
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AccountCircle
+import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Menu
+import androidx.compose.material.icons.filled.Person
+import androidx.compose.material3.BottomAppBar
+import androidx.compose.material3.BottomAppBarDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FloatingActionButton
+import androidx.compose.material3.FloatingActionButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
@@ -39,6 +51,7 @@ class MainActivity : ComponentActivity() {
             EvadãoTheme {
                 Surface {
                     Background()
+                    BottomAppBar()
                     AppBarTop()
                 }
             }
@@ -49,7 +62,6 @@ class MainActivity : ComponentActivity() {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AppBarTop() {
-
     val context = LocalContext.current.applicationContext
 
     TopAppBar(
@@ -100,6 +112,75 @@ fun AppBarTop() {
     )
 }
 
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
+@Composable
+fun BottomAppBar() {
+    Scaffold(
+        bottomBar = {
+            BottomAppBar {
+                // Create a Box to hold the icons and position them
+                Box(modifier = Modifier.fillMaxSize()) {
+                    // Centered icons
+                    Row(
+                        modifier = Modifier.align(Alignment.Center), // Center the Row
+                        verticalAlignment = Alignment.CenterVertically // Align items vertically in the center
+                    ) {
+                        IconButton(onClick = { /* do something */ }) {
+                            Icon(
+                                painter = painterResource(id = R.drawable.home),
+                                contentDescription = "Home",
+                                modifier = Modifier.size(24.dp)
+                            )
+                        }
+                        Spacer(modifier = Modifier.width(16.dp)) // Add space between icons
+
+                        IconButton(onClick = { /* do something */ }) {
+                            Icon(
+                                painter = painterResource(id = R.drawable.book),
+                                contentDescription = "Book",
+                                modifier = Modifier.size(24.dp)
+                            )
+                        }
+                        Spacer(modifier = Modifier.width(16.dp)) // Add space between icons
+
+                        IconButton(onClick = { /* do something */ }) {
+                            Icon(
+                                painter = painterResource(id = R.drawable.auto_stories),
+                                contentDescription = "Auto Stories",
+                                modifier = Modifier.size(24.dp)
+                            )
+                        }
+                        Spacer(modifier = Modifier.width(16.dp)) // Add space between icons
+
+                        IconButton(onClick = { /* do something */ }) {
+                            Icon(
+                                painter = painterResource(id = R.drawable.groups),
+                                contentDescription = "Groups",
+                                modifier = Modifier.size(24.dp)
+                            )
+                        }
+                    }
+
+                    // Profile icon on the right
+                    IconButton(
+                        onClick = { /* do something */ },
+                        modifier = Modifier.align(Alignment.CenterEnd) // Align to the end
+                    ) {
+                        Icon(Icons.Filled.AccountCircle, contentDescription = "Profile")
+                    }
+                }
+            }
+        }
+    ) {
+        // Outros conteúdos
+    }
+}
+
+
+
+
+
+
 @Composable
 fun Background() {
     Box(
@@ -118,6 +199,7 @@ fun PreviewApp() {
     EvadãoTheme {
         Surface {
             Background()
+            BottomAppBar()
             AppBarTop()
         }
     }
