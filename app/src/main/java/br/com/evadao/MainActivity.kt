@@ -9,6 +9,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -18,16 +19,12 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
-import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Menu
-import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.BottomAppBar
-import androidx.compose.material3.BottomAppBarDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.FloatingActionButton
-import androidx.compose.material3.FloatingActionButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -37,9 +34,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import br.com.evadao.ui.theme.EvadãoTheme
 
@@ -115,70 +114,126 @@ fun AppBarTop() {
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun BottomAppBar() {
+    val context = LocalContext.current
     Scaffold(
         bottomBar = {
             BottomAppBar {
-                // Create a Box to hold the icons and position them
                 Box(modifier = Modifier.fillMaxSize()) {
-                    // Centered icons
                     Row(
-                        modifier = Modifier.align(Alignment.Center), // Center the Row
-                        verticalAlignment = Alignment.CenterVertically // Align items vertically in the center
+                        modifier = Modifier
+                            .align(Alignment.Center)
+                            .fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically
                     ) {
-                        IconButton(onClick = { /* do something */ }) {
-                            Icon(
-                                painter = painterResource(id = R.drawable.home),
+                        Row(
+                            modifier = Modifier.weight(1f),
+                            horizontalArrangement = Arrangement.SpaceEvenly,
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            // Home icon with text
+                            IconWithText(
+                                iconResId = R.drawable.home,
                                 contentDescription = "Home",
-                                modifier = Modifier.size(24.dp)
+                                text = "Home",
+                                onClick = {
+                                    Toast.makeText(context, "Home clicado!", Toast.LENGTH_SHORT)
+                                        .show()
+                                }
                             )
-                        }
-                        Spacer(modifier = Modifier.width(16.dp)) // Add space between icons
 
-                        IconButton(onClick = { /* do something */ }) {
-                            Icon(
-                                painter = painterResource(id = R.drawable.book),
+                            // Book icon with text
+                            IconWithText(
+                                iconResId = R.drawable.book,
                                 contentDescription = "Book",
-                                modifier = Modifier.size(24.dp)
+                                text = "Histórias",
+                                onClick = {
+                                    Toast.makeText(
+                                        context,
+                                        "Histórias clicado!",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                }
                             )
-                        }
-                        Spacer(modifier = Modifier.width(16.dp)) // Add space between icons
 
-                        IconButton(onClick = { /* do something */ }) {
-                            Icon(
-                                painter = painterResource(id = R.drawable.auto_stories),
+                            // Auto Stories icon with text
+                            IconWithText(
+                                iconResId = R.drawable.auto_stories,
                                 contentDescription = "Auto Stories",
-                                modifier = Modifier.size(24.dp)
+                                text = "Vesículos",
+                                onClick = {
+                                    Toast.makeText(
+                                        context,
+                                        "Vesículos clicado!",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                }
                             )
                         }
-                        Spacer(modifier = Modifier.width(16.dp)) // Add space between icons
 
-                        IconButton(onClick = { /* do something */ }) {
+                        Spacer(modifier = Modifier.width(16.dp))
+                        // Icone de Perfil no lado direito
+                        IconButton(
+                            onClick = {
+                                Toast.makeText(context, "Perfil clicado!", Toast.LENGTH_SHORT).show()
+                            },
+                            modifier = Modifier.padding(end = 16.dp)
+                        ) {
                             Icon(
-                                painter = painterResource(id = R.drawable.groups),
-                                contentDescription = "Groups",
-                                modifier = Modifier.size(24.dp)
+                                Icons.Filled.AccountCircle,
+                                contentDescription = "Profile",
+                                modifier = Modifier.size(32.dp)
                             )
                         }
-                    }
-
-                    // Profile icon on the right
-                    IconButton(
-                        onClick = { /* do something */ },
-                        modifier = Modifier.align(Alignment.CenterEnd) // Align to the end
-                    ) {
-                        Icon(Icons.Filled.AccountCircle, contentDescription = "Profile")
                     }
                 }
             }
         }
     ) {
-        // Outros conteúdos
+        //Qualquer outra coisa aqui
     }
 }
 
 
+@Composable
+fun IconWithText(
+    iconResId: Any,
+    contentDescription: String,
+    text: String,
+    iconSize: Dp = 24.dp,
+    modifier: Modifier = Modifier,
+    onClick: () -> Unit // Add onClick parameter
+) {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = modifier
+    ) {
+        IconButton(onClick = onClick) {
+            when (iconResId) {
+                is Int -> {
+                    Icon(
+                        painter = painterResource(id = iconResId),
+                        contentDescription = contentDescription,
+                        modifier = Modifier.size(iconSize)
+                    )
+                }
 
-
+                is ImageVector -> {
+                    Icon(
+                        imageVector = iconResId,
+                        contentDescription = contentDescription,
+                        modifier = Modifier.size(iconSize)
+                    )
+                }
+            }
+        }
+        // Text below the icon
+        Text(
+            text = text,
+            style = MaterialTheme.typography.bodyMedium // Change this to your desired text style
+        )
+    }
+}
 
 
 @Composable

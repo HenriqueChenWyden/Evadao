@@ -8,4 +8,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="gray_app">#D9D9D9</color>
+    <color name="marrom_ciclista">#734D1A</color>
+    <color name="azul_ciclistas">#94D2F9</color>
 </resources>
