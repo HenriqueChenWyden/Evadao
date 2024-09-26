@@ -97,16 +97,16 @@ fun AppBarTop() {
                     Icon(
                         painter = painterResource(id = R.drawable.icone),
                         contentDescription = "Icone do App",
-                        modifier = Modifier.size(64.dp) // Tamanho do ícone
+                        modifier = Modifier.size(120.dp) // Tamanho do ícone
                     )
                 }
 
                 Spacer(modifier = Modifier.weight(1.3f)) // Ajuste do espaço
             }
         },
-        colors = TopAppBarDefaults.smallTopAppBarColors(
-            containerColor = Color(context.getColor(R.color.gray_app)), // Fundo do Menu
-            titleContentColor = Color.White, // Fundo dos Textos
+        colors = TopAppBarDefaults.topAppBarColors(
+            containerColor = Color(context.getColor(R.color.gray_app)), //Cor do fundo
+            titleContentColor = Color.White //Cor do texto
         )
     )
 }
@@ -194,18 +194,18 @@ fun BottomAppBar() {
     }
 }
 
-
 @Composable
 fun IconWithText(
     iconResId: Any,
     contentDescription: String,
     text: String,
-    iconSize: Dp = 24.dp,
     modifier: Modifier = Modifier,
+    iconSize: Dp = 24.dp,
     onClick: () -> Unit // Add onClick parameter
 ) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.spacedBy((-10).dp),
         modifier = modifier
     ) {
         IconButton(onClick = onClick) {
