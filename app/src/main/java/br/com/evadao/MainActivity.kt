@@ -13,6 +13,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             EvadãoTheme {
                     EvadaoScreen().Aplicacao()
+                    EvadaoVersiculos().Aplicacao()
             }
         }
     }
