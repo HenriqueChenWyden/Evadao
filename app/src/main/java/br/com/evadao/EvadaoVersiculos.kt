@@ -219,6 +219,7 @@ class EvadaoVersiculos {
                 Background()
                 BottomAppBar()
                 AppBarTop()
+                VerseScreen()
             }
         }
     }
