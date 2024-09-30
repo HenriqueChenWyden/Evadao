@@ -142,11 +142,11 @@ class EvadaoScreen {
                                 IconWithText(
                                     iconResId = R.drawable.auto_stories,
                                     contentDescription = "Auto Stories",
-                                    text = "Vesículos",
+                                    text = "Versículos",
                                     onClick = {
                                         Toast.makeText(
                                             context,
-                                            "Vesículos clicado!",
+                                            "Versículos clicado!",
                                             Toast.LENGTH_SHORT
                                         ).show()
                                     }
