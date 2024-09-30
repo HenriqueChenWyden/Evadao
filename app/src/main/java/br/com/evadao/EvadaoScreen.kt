@@ -38,7 +38,6 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
 
-
 class EvadaoScreen {
 
     @OptIn(ExperimentalMaterial3Api::class)
@@ -66,7 +65,8 @@ class EvadaoScreen {
                         Icon(
                             imageVector = Icons.Default.Menu, // Menu Hambuguer icone
                             contentDescription = "Menu",
-                            modifier = Modifier.size(24.dp) // Tamanho Menu
+                            modifier = Modifier.size(24.dp), // Tamanho Menu
+                            tint = Color.White
                         )
                     }
 
@@ -79,7 +79,8 @@ class EvadaoScreen {
                         Icon(
                             painter = painterResource(id = R.drawable.icone),
                             contentDescription = "Icone do App",
-                            modifier = Modifier.size(120.dp) // Tamanho do ícone
+                            modifier = Modifier.size(120.dp), // Tamanho do ícone
+                            tint = Color.White
                         )
                     }
 
@@ -87,7 +88,7 @@ class EvadaoScreen {
                 }
             },
             colors = TopAppBarDefaults.topAppBarColors(
-                containerColor = Color(context.getColor(R.color.gray_app)), //Cor do fundo
+                containerColor = Color(context.getColor(R.color.marrom_ciclista)), //Cor do fundo
                 titleContentColor = Color.White //Cor do texto
             )
         )
