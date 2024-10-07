@@ -1,6 +1,5 @@
 package br.com.evadao
 
-import br.com.evadao.ui.theme.EvadãoTheme
 import android.annotation.SuppressLint
 import android.widget.Toast
 import androidx.compose.foundation.background
@@ -36,10 +35,10 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import br.com.evadao.ui.theme.EvadãoTheme
 
 
 class EvadaoScreen {
-
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
     fun AppBarTop() {
@@ -58,7 +57,7 @@ class EvadaoScreen {
                     modifier = Modifier.fillMaxWidth(),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    // Sandwich menu on the left
+                    // Menu esqueda
                     IconButton(onClick = {
                         Toast.makeText(context, "Menu clicado!", Toast.LENGTH_SHORT).show()
                     }) {
@@ -69,11 +68,9 @@ class EvadaoScreen {
                             tint = Color.White
                         )
                     }
-
-                    // Spacer to push the custom icon to the center
+        // Icone do App
                     Spacer(modifier = Modifier.weight(1f))
 
-                    // Custom centered icon
                     IconButton(onClick = {
                     }) {
                         Icon(
@@ -125,7 +122,7 @@ class EvadaoScreen {
                                     }
                                 )
 
-                                // Book icon with text
+                                // Icone
                                 IconWithText(
                                     iconResId = R.drawable.book,
                                     contentDescription = "Book",
@@ -139,7 +136,7 @@ class EvadaoScreen {
                                     }
                                 )
 
-                                // Auto Stories icon with text
+                                // Icone
                                 IconWithText(
                                     iconResId = R.drawable.auto_stories,
                                     contentDescription = "Auto Stories",
@@ -184,7 +181,7 @@ class EvadaoScreen {
         text: String,
         modifier: Modifier = Modifier,
         iconSize: Dp = 24.dp,
-        onClick: () -> Unit // Add onClick parameter
+        onClick: () -> Unit // Parametro onClick
     ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -210,7 +207,7 @@ class EvadaoScreen {
                     }
                 }
             }
-            // Text below the icon
+
             Text(
                 text = text,
                 style = MaterialTheme.typography.bodyMedium // Change this to your desired text style
@@ -218,6 +215,17 @@ class EvadaoScreen {
         }
     }
 
+    @Composable
+    fun SobreScreen(){
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(Color.White),
+            contentAlignment = Alignment.Center
+        ) {
+            Text(text = "Sobre Screen", style = MaterialTheme.typography.titleLarge)
+        }
+    }
 
     @Composable
     fun Background() {
@@ -226,17 +234,17 @@ class EvadaoScreen {
                 .fillMaxSize()
                 .background(Color.White)
         ) {
-            // Content goes here
+
         }
     }
-
-
+    
     @Preview(showBackground = true)
     @Composable
     fun Aplicacao() {
         EvadãoTheme {
             Surface {
                 Background()
+                SobreScreen()
                 BottomAppBar()
                 AppBarTop()
             }
