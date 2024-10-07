@@ -5,7 +5,6 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import br.com.evadao.Home.HomeScreen
-import br.com.evadao.Versiculos.VersiculosScreen
 import br.com.evadao.ui.theme.EvadãoTheme
 
 class MainActivity : ComponentActivity() {
@@ -14,8 +13,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             EvadãoTheme {
-                    HomeScreen().Aplicacao()
-                    VersiculosScreen().Aplicacao()
+                    HomeScreen()
+                    //VersiculosScreen().Aplicacao()
             }
         }
     }
