@@ -1,4 +1,4 @@
-package br.com.evadao
+package br.com.evadao.Versiculos
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -10,7 +10,7 @@ class VersiclesApiService {
     // Definir a interface do serviço com parâmetro dinâmico
     interface VerseApiService {
         @GET("{verse}")  // Usando um parâmetro dinâmico para o versículo
-        fun getRandomVerse(@Path("verse") verse: String): Call<VersiclesApiService.VerseResponse>
+        fun getRandomVerse(@Path("verse") verse: String): Call<VerseResponse>
     }
 
     // Definir o modelo de dados que vai representar a resposta

@@ -1,6 +1,6 @@
 // Arquivo Principal com tela home
 
-package br.com.evadao
+package br.com.evadao.Home
 
 import android.annotation.SuppressLint
 import android.widget.Toast
@@ -37,6 +37,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import br.com.evadao.R
 import br.com.evadao.ui.theme.EvadãoTheme
 
 
