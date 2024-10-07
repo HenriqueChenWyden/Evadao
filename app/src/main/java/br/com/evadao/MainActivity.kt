@@ -12,7 +12,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             EvadãoTheme {
-                    EvadaoScreen().Aplicacao()
+                    HomeScreen().Aplicacao()
                     // EvadaoVersiculos().Aplicacao()
             }
         }
