@@ -18,6 +18,7 @@ import br.com.evadao.ui.theme.EvadãoTheme
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun HomeScreen() {
+    
     Scaffold(
         topBar = {
             AppBarTop() // Chamando a TopAppBar no Scaffold
@@ -26,19 +27,19 @@ fun HomeScreen() {
             BottomAppBar() // Chamando a BottomAppBar no Scaffold
         },
         content = {
-            Background()
+            Home()
         }
     )
 }
 
 @Composable
-fun Background() {
+fun Home() {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.White)
+            .background(color = Color(0x54D8D8D8))
     ) {
-        Text(text = "Conteúdo da Home", color = Color.Black)
+        Text(text = "Conteúdo da Home", color = Color(0xFF216216))
     }
 }
 
