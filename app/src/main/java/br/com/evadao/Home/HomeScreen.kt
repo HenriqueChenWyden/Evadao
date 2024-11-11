@@ -23,15 +23,15 @@ import br.com.evadao.ui.theme.EvadãoTheme
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun HomeScreen() {
-    val navController = rememberNavController()
+    //   val navController = rememberNavController()
 
-    NavHost(navController = navController, startDestination = "home_Screen"){
-        composable("home_Screen"){
-            HomeScreen(navController = navController)
-        }
-        composable("versiculos_Screen"){
-            VersiculosScreen(navController = navController)
-    }
+//    NavHost(navController = navController, startDestination = "home_Screen"){
+        //     composable("home_Screen"){
+            //        HomeScreen(navController = navController)
+            //    }
+        //      composable("versiculos_Screen"){
+        //         VersiculosScreen(navController = navController)
+  //  }
     Scaffold(
         topBar = {
             AppBarTop() // Chamando a TopAppBar no Scaffold
@@ -40,15 +40,13 @@ fun HomeScreen() {
             BottomAppBar() // Chamando a BottomAppBar no Scaffold
         },
         content = {
-            Home(
-                navController = navController
-            )
+            Home()
         }
     )
 }
 
 @Composable
-fun Home(navController: NavController) {
+fun Home() {
     Box(
         modifier = Modifier
             .fillMaxSize()
