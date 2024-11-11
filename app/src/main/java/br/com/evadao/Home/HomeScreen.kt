@@ -11,14 +11,27 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import br.com.evadao.AppBarTop
 import br.com.evadao.BottomAppBar
+import br.com.evadao.Versiculos.VersiculosScreen
 import br.com.evadao.ui.theme.EvadãoTheme
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun HomeScreen() {
-    
+    val navController = rememberNavController()
+
+    NavHost(navController = navController, startDestination = "home_Screen"){
+        composable("home_Screen"){
+            HomeScreen(navController = navController)
+        }
+        composable("versiculos_Screen"){
+            VersiculosScreen(navController = navController)
+    }
     Scaffold(
         topBar = {
             AppBarTop() // Chamando a TopAppBar no Scaffold
@@ -27,13 +40,15 @@ fun HomeScreen() {
             BottomAppBar() // Chamando a BottomAppBar no Scaffold
         },
         content = {
-            Home()
+            Home(
+                navController = navController
+            )
         }
     )
 }
 
 @Composable
-fun Home() {
+fun Home(navController: NavController) {
     Box(
         modifier = Modifier
             .fillMaxSize()
