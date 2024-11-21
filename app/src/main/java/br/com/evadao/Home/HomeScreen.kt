@@ -82,7 +82,7 @@ fun Home(navController: NavController) {
             fontStyle = FontStyle.Normal,
             fontSize = 55.sp,
             fontFamily = customFontFamily,
-            modifier = Modifier.padding(16.dp)
+            modifier = Modifier.padding(30.dp)
         )
         Column(
             modifier = Modifier.padding(16.dp)
@@ -155,7 +155,7 @@ fun SquareButton(
                 tint = Color.White
             )
         }
-        Spacer(modifier = Modifier.height(4.dp))
+        Spacer(modifier = Modifier.height(3.dp))
         Text(text = label, fontSize = 20.sp)
     }
 }

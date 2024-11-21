@@ -33,6 +33,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import br.com.evadao.ui.theme.EvadãoTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -83,7 +84,7 @@ fun AppBarTop() {
 }
 
 @Composable
-fun BottomAppBar() {
+fun BottomAppBar(navController: NavController) {
     val context = LocalContext.current
     BottomAppBar {
         Box(modifier = Modifier.fillMaxSize()) {
@@ -104,7 +105,7 @@ fun BottomAppBar() {
                         contentDescription = "Home",
                         text = "Home",
                         onClick = {
-                            Toast.makeText(context, "Home clicado!", Toast.LENGTH_SHORT).show()
+                            navController.navigate("home_screen")
                         }
                     )
                     IconWithText(
@@ -112,6 +113,7 @@ fun BottomAppBar() {
                         contentDescription = "Book",
                         text = "Histórias",
                         onClick = {
+                           // navController.navigate("historias")
                             Toast.makeText(context, "Histórias clicado!", Toast.LENGTH_SHORT).show()
                         }
                     )
@@ -120,13 +122,14 @@ fun BottomAppBar() {
                         contentDescription = "Auto Stories",
                         text = "Versículos",
                         onClick = {
-                            Toast.makeText(context, "Versículos clicado!", Toast.LENGTH_SHORT).show()
+                            navController.navigate("versiculos_screen")
                         }
                     )
                 }
                 Spacer(modifier = Modifier.width(16.dp))
                 IconButton(
                     onClick = {
+                        //navController.navigate("perfil")
                         Toast.makeText(context, "Perfil clicado!", Toast.LENGTH_SHORT).show()
                     },
                     modifier = Modifier.padding(end = 16.dp)
@@ -187,7 +190,6 @@ fun Aplicacao() {
     EvadãoTheme {
         Surface {
             AppBarTop()
-            BottomAppBar()
         }
     }
 }
