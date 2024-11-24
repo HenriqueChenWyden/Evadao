@@ -41,3 +41,11 @@ jobs:
 
       - name: Rodando os Testes
         run: ./gradlew test
+
+      - name: Enviar resultados
+        if: always() # Sempre executa, mesmo se o job falhar
+        uses: actions/upload-artifact@v3
+        with:
+          name: teste-build
+          path: build/reports/tests/test/
+
