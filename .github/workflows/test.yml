@@ -41,7 +41,10 @@ jobs:
 
       - name: Rodando os Testes
         run: ./gradlew test
-
+        
+      - name: Verificar arquivos de teste
+        run: ls -R build/reports/tests/test/
+  
       - name: Enviar resultados
         if: always() # Sempre executa, mesmo se o job falhar
         uses: actions/upload-artifact@v3
