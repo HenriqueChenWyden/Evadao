@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       branch:
-        description: 'Testando em branch especifico'
+        description: 'Branch'
         required: true
         default: 'teste-build'
 
@@ -41,13 +41,3 @@ jobs:
 
       - name: Rodando os Testes
         run: ./gradlew test
-        
-      - name: Verificar arquivos de teste
-        run: ls -R build/reports/tests/test/
-  
-      - name: Enviar resultados
-        if: always() # Sempre executa, mesmo se o job falhar
-        uses: actions/upload-artifact@v3
-        with:
-          name: test-results
-          path: '**/build/reports/tests/test/' # Busca em todos os módulos
