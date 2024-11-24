@@ -1,4 +1,4 @@
-package br.com.evadao
+package br.com.evadao.Versiculos
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

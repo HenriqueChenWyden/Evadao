@@ -1,6 +1,5 @@
-package br.com.evadao
+package br.com.evadao.Versiculos
 
-import br.com.evadao.ui.theme.EvadãoTheme
 import android.annotation.SuppressLint
 import android.widget.Toast
 import androidx.compose.foundation.background
@@ -16,7 +15,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
-import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -36,10 +34,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import br.com.evadao.R
+import br.com.evadao.ui.theme.EvadãoTheme
 
 
-class EvadaoScreen {
-
+class VersiculosScreen {
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
     fun AppBarTop() {
@@ -47,49 +46,32 @@ class EvadaoScreen {
 
         TopAppBar(
             title = {
-                Spacer(
-                    modifier = Modifier
-                        .width(2.dp)
-                        .fillMaxWidth()
-                )
-            },
-            navigationIcon = {
+                // Row para centralizar o texto "Versículos"
                 Row(
                     modifier = Modifier.fillMaxWidth(),
-                    verticalAlignment = Alignment.CenterVertically
+                    horizontalArrangement = Arrangement.Center // Centraliza o conteúdo
                 ) {
-                    // Sandwich menu on the left
-                    IconButton(onClick = {
-                        Toast.makeText(context, "Menu clicado!", Toast.LENGTH_SHORT).show()
-                    }) {
-                        Icon(
-                            imageVector = Icons.Default.Menu, // Menu Hambuguer icone
-                            contentDescription = "Menu",
-                            modifier = Modifier.size(24.dp), // Tamanho Menu
-                            tint = Color.White
-                        )
-                    }
-
-                    // Spacer to push the custom icon to the center
-                    Spacer(modifier = Modifier.weight(1f))
-
-                    // Custom centered icon
-                    IconButton(onClick = {
-                    }) {
-                        Icon(
-                            painter = painterResource(id = R.drawable.icone),
-                            contentDescription = "Icone do App",
-                            modifier = Modifier.size(120.dp), // Tamanho do ícone
-                            tint = Color.White
-                        )
-                    }
-
-                    Spacer(modifier = Modifier.weight(1.3f)) // Ajuste do espaço
+                    Text(
+                        text = "Versículos", // Texto "Versículos"
+                        color = Color.Black, // Cor do texto
+                        style = MaterialTheme.typography.titleLarge // Estilo do texto
+                    )
+                }
+            },
+            navigationIcon = {
+                IconButton(onClick = {
+                    Toast.makeText(context, "Menu clicado!", Toast.LENGTH_SHORT).show()
+                }) {
+                    Icon(
+                        painter = painterResource(id = R.drawable.arrow_back), // Ícone de menu
+                        contentDescription = "Menu",
+                        modifier = Modifier.size(24.dp)
+                    )
                 }
             },
             colors = TopAppBarDefaults.topAppBarColors(
-                containerColor = Color(context.getColor(R.color.marrom_ciclista)), //Cor do fundo
-                titleContentColor = Color.White //Cor do texto
+                containerColor = Color(context.getColor(R.color.marrom_ciclista)), // Cor de fundo da top bar
+                titleContentColor = Color.White // Cor do texto
             )
         )
     }
@@ -143,11 +125,11 @@ class EvadaoScreen {
                                 IconWithText(
                                     iconResId = R.drawable.auto_stories,
                                     contentDescription = "Auto Stories",
-                                    text = "Versículos",
+                                    text = "Vesículos",
                                     onClick = {
                                         Toast.makeText(
                                             context,
-                                            "Versículos clicado!",
+                                            "Vesículos clicado!",
                                             Toast.LENGTH_SHORT
                                         ).show()
                                     }
@@ -218,7 +200,6 @@ class EvadaoScreen {
         }
     }
 
-
     @Composable
     fun Background() {
         Box(
@@ -239,6 +220,7 @@ class EvadaoScreen {
                 Background()
                 BottomAppBar()
                 AppBarTop()
+                VerseScreen()
             }
         }
     }

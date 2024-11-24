@@ -64,6 +64,8 @@ dependencies {
 // Retrofit with Scalar Converter
     implementation(libs.converter.scalars)
     implementation(libs.converter.gson)
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.storage)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
