@@ -3,7 +3,7 @@ name: Pipeline de Build - Henrique
 on:
   push:
     branches:
-      - '*' # Monitorar todas as branches
+      - 'main' # Monitorar todas as branches
 
 jobs:
   build:
