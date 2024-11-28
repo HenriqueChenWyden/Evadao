@@ -35,7 +35,7 @@ jobs:
         run: chmod +x ./gradlew
       
       - name: Executando a Build no Projeto
-        run: ./gradlew -b ci.gradle package
+        run: ./gradlew build
 
   test-gradle:
     name: Testes
