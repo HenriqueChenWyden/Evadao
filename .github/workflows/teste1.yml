@@ -35,7 +35,7 @@ jobs:
         run: chmod +x ./gradlew
       
       - name: Executando a Build no Projeto
-        run: ./gradlew build
+        run: ./gradlew -b ci.gradle package
 
   test-gradle:
     name: Testes
@@ -66,5 +66,5 @@ jobs:
       - name: Realizando Upload dos Artefatos
         uses: actions/upload-artifact@v4
         with:
-          name: build-results
+          name: package
           path: build/libs
