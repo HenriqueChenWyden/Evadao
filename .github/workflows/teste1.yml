@@ -1,0 +1,58 @@
+name: Build and Diagnostic Pipeline - Henrique
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Branch'
+        required: true
+        default: 'teste-build'
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Realizar o checkout do código
+        uses: actions/checkout@v3
+
+      - name: Configurando JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Criando Cache no Gradle
+        uses: actions/cache@v3
+        with:
+          path: ~/.gradle/caches
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+            
+      - name: Tornando o gradlew executável
+        run: chmod +x ./gradlew
+      
+      - name: Executando a Build no Projeto
+        run: ./gradlew build
+
+  test-gradle:
+    name: Testes
+    runs-on: ubuntu-latest
+    needs: build # Define dependência no job de build
+    steps:
+      - name: Realizar o checkout do código
+        uses: actions/checkout@v3
+
+      - name: Configurando JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Tornando o gradlew executável
+        run: chmod +x ./gradlew
+
+      - name: Rodando os Testes
+        run: ./gradlew test
