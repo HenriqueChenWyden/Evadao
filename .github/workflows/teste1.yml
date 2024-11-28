@@ -56,3 +56,11 @@ jobs:
 
       - name: Rodando os Testes
         run: ./gradlew test
+
+  upload-gradle:
+    name: Upload dos Resultados
+    runs-on: ubuntu-latest
+    needs: build # Define dependência no job de build
+    steps:
+      - name: Realizando Upload dos Artefatos
+        run: actions/upload-artifact
