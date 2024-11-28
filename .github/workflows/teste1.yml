@@ -64,7 +64,7 @@ jobs:
       - test-gradle # Adiciona dependência no job de testes
     steps:
       - name: Realizando Upload dos Artefatos
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: build-results
-          path: app/build/outputs/apk/debug/app-debug.apk
+          path: build/libs
