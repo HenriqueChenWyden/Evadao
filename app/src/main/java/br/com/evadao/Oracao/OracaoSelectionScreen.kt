@@ -5,17 +5,14 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -24,20 +21,19 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import br.com.evadao.AppBarTop
 import br.com.evadao.BottomAppBar
 import br.com.evadao.Home.Home
-import br.com.evadao.Home.SquareButton
 import br.com.evadao.R
 import br.com.evadao.Versiculos.VersiculosScreen
 import br.com.evadao.ui.theme.EvadãoTheme
@@ -62,8 +58,23 @@ fun NavigationSelection() {
                 composable("versiculos_screen") {
                     VersiculosScreen().Aplicacao()
                 }
-                composable("oracao_screen") {
-                    // OracaoScreen()
+                composable("historias_screen") {
+                    // HistoriasScreen()
+                }
+                composable("pai_nosso_screen"){
+                    PaiNosso()
+                }
+                composable("ave_maria_screen") {
+                    AveMaria()
+                }
+                composable("sinal_cruz_screen") {
+                    SinalCruz()
+                }
+                composable("credo_screen"){
+                    Credo()
+                }
+                composable("gloria_screen") {
+                    Gloria()
                 }
             }
         }
@@ -71,7 +82,7 @@ fun NavigationSelection() {
 }
 
 @Composable
-fun OracaoSelection() {
+fun OracaoSelection(navController: NavController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -98,13 +109,15 @@ fun OracaoSelection() {
                 label = "Pai-Nosso",
                 colorResourceId = R.color.marrom_ciclista,
             ) {
-                // navController.navigate("versiculos_screen")
+                navController.navigate("pai_nosso_screen")
             }
             RectangleButton(
                 buttonText = "",
                 label = "Ave-Maria",
                 colorResourceId = R.color.marrom_ciclista,
-            ) { /* Button 2 action */ }
+            ) {
+                navController.navigate("ave_maria_screen")
+            }
         }
         Spacer(modifier = Modifier.height(8.dp))
         Column(
@@ -116,19 +129,25 @@ fun OracaoSelection() {
                 buttonText = "",
                 label = "Sinal da Cruz",
                 colorResourceId = R.color.marrom_ciclista,
-            ) { /* Button 3 action */ }
+            ) {
+                navController.navigate("sinal_cruz_screen")
+            }
             RectangleButton(
                 buttonText = "",
                 label = "Credo",
                 colorResourceId = R.color.marrom_ciclista,
-            ) { /* Button 4 action */ }
+            ) {
+                navController.navigate("credo_screen")
+            }
         }
         Spacer(modifier = Modifier.height(8.dp))
         RectangleButton(
             buttonText = "",
             label = "Glória",
             colorResourceId = R.color.marrom_ciclista,
-        ) { /* Button 5 action */ }
+        ) {
+            navController.navigate("gloria_screen")
+        }
     }
 }
 
@@ -163,10 +182,20 @@ fun RectangleButton(
 
 @Preview(showBackground = true)
 @Composable
-fun Aplicacao() {
+fun AplicaçãoHome() {
     EvadãoTheme {
         Surface {
-            OracaoSelection()
+            NavigationSelection()
+        }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun AplicacaoSelectionOracao() {
+    EvadãoTheme {
+        Surface {
+            OracaoSelection(navController = rememberNavController())
         }
     }
 }
