@@ -1,5 +1,6 @@
 package br.com.evadao.Home
 
+import EvadaoSobre
 import android.annotation.SuppressLint
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -64,6 +65,9 @@ fun HomeScreen() {
                 composable("oracao_screen"){
                     OracaoSelection()
                 }
+                composable("EvadaoSobre"){
+                    EvadaoSobre().SobreScreen()
+                }
             }
         }
     )
@@ -126,7 +130,7 @@ fun Home(navController: NavController) {
                     label = "Sobre",
                     colorResourceId = R.color.marrom_ciclista,
                     imageResId = R.drawable.info
-                ) { /* Button 4 action */ }
+                ) {navController.navigate("EvadaoSobre")}
             }
         }
     }
