@@ -8,12 +8,8 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AccountCircle
-import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -50,21 +46,10 @@ fun AppBarTop() {
             )
         },
         navigationIcon = {
-            Row(
+            Box(
                 modifier = Modifier.fillMaxWidth(),
-                verticalAlignment = Alignment.CenterVertically
+                contentAlignment = Alignment.Center
             ) {
-                IconButton(onClick = {
-                    Toast.makeText(context, "Menu clicado!", Toast.LENGTH_SHORT).show()
-                }) {
-                    Icon(
-                        imageVector = Icons.Default.Menu, // Menu Hambuguer icone
-                        contentDescription = "Menu",
-                        modifier = Modifier.size(24.dp), // Tamanho Menu
-                        tint = Color.White
-                    )
-                }
-                Spacer(modifier = Modifier.weight(1f))
                 IconButton(onClick = {}) {
                     Icon(
                         painter = painterResource(id = R.drawable.icone),
@@ -73,12 +58,11 @@ fun AppBarTop() {
                         tint = Color.White
                     )
                 }
-                Spacer(modifier = Modifier.weight(1.3f))
             }
         },
         colors = TopAppBarDefaults.topAppBarColors(
-            containerColor = Color(context.getColor(R.color.marrom_ciclista)), //Cor do fundo
-            titleContentColor = Color.White //Cor do texto
+            containerColor = Color(context.getColor(R.color.marrom_ciclista)), // Cor do fundo
+            titleContentColor = Color.White // Cor do texto
         )
     )
 }
@@ -92,54 +76,33 @@ fun BottomAppBar(navController: NavController) {
                 modifier = Modifier
                     .align(Alignment.Center)
                     .fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
+                horizontalArrangement = Arrangement.SpaceEvenly,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Row(
-                    modifier = Modifier.weight(1f),
-                    horizontalArrangement = Arrangement.SpaceEvenly,
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    IconWithText(
-                        iconResId = R.drawable.home,
-                        contentDescription = "Home",
-                        text = "Home",
-                        onClick = {
-                            navController.navigate("home_screen")
-                        }
-                    )
-                    IconWithText(
-                        iconResId = R.drawable.book,
-                        contentDescription = "Book",
-                        text = "Histórias",
-                        onClick = {
-                           // navController.navigate("historias")
-                            Toast.makeText(context, "Histórias clicado!", Toast.LENGTH_SHORT).show()
-                        }
-                    )
-                    IconWithText(
-                        iconResId = R.drawable.auto_stories,
-                        contentDescription = "Auto Stories",
-                        text = "Versículos",
-                        onClick = {
-                            navController.navigate("versiculos_screen")
-                        }
-                    )
-                }
-                Spacer(modifier = Modifier.width(16.dp))
-                IconButton(
+                IconWithText(
+                    iconResId = R.drawable.home,
+                    contentDescription = "Home",
+                    text = "Home",
                     onClick = {
-                        //navController.navigate("perfil")
-                        Toast.makeText(context, "Perfil clicado!", Toast.LENGTH_SHORT).show()
-                    },
-                    modifier = Modifier.padding(end = 16.dp)
-                ) {
-                    Icon(
-                        Icons.Filled.AccountCircle,
-                        contentDescription = "Profile",
-                        modifier = Modifier.size(32.dp)
-                    )
-                }
+                        navController.navigate("home_screen")
+                    }
+                )
+                IconWithText(
+                    iconResId = R.drawable.book,
+                    contentDescription = "Book",
+                    text = "Histórias",
+                    onClick = {
+                        Toast.makeText(context, "Histórias clicado!", Toast.LENGTH_SHORT).show()
+                    }
+                )
+                IconWithText(
+                    iconResId = R.drawable.auto_stories,
+                    contentDescription = "Auto Stories",
+                    text = "Versículos",
+                    onClick = {
+                        navController.navigate("versiculos_screen")
+                    }
+                )
             }
         }
     }
