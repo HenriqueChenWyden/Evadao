@@ -36,6 +36,12 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import br.com.evadao.AppBarTop
 import br.com.evadao.BottomAppBar
+import br.com.evadao.Oracao.AveMaria
+import br.com.evadao.Oracao.Credo
+import br.com.evadao.Oracao.Gloria
+import br.com.evadao.Oracao.OracaoSelection
+import br.com.evadao.Oracao.PaiNosso
+import br.com.evadao.Oracao.SinalCruz
 import br.com.evadao.R
 import br.com.evadao.Versiculos.VersiculosScreen
 import br.com.evadao.ui.theme.EvadãoTheme
@@ -59,6 +65,24 @@ fun HomeScreen() {
                 }
                 composable("versiculos_screen") {
                     VersiculosScreen().Aplicacao()
+                }
+                composable("oracao_screen"){
+                    OracaoSelection(navController = navController)
+                }
+                composable("pai_nosso_screen"){
+                    PaiNosso()
+                }
+                composable("ave_maria_screen") {
+                    AveMaria()
+                }
+                composable("sinal_cruz_screen") {
+                    SinalCruz()
+                }
+                composable("credo_screen"){
+                    Credo()
+                }
+                composable("gloria_screen") {
+                    Gloria()
                 }
             }
         }
@@ -114,7 +138,9 @@ fun Home(navController: NavController) {
                     label = "Orações",
                     colorResourceId = R.color.marrom_ciclista,
                     imageResId = R.drawable.vela
-                ) { /* Button 3 action */ }
+                ) {
+                    navController.navigate("oracao_screen")
+                }
                 SquareButton(
                     buttonText = "",
                     label = "Sobre",
