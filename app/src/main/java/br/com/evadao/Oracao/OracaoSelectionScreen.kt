@@ -90,15 +90,15 @@ fun OracaoSelection(navController: NavController) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Top
     ) {
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(80.dp))
         Text(
             text = "Escolha a sua oração",
             color = Color.Black,
             fontWeight = FontWeight.Normal,
             fontStyle = FontStyle.Normal,
             fontFamily = FontFamily.SansSerif,
-            fontSize = 20.sp,
-            modifier = Modifier.padding(30.dp)
+            fontSize = 30.sp,
+            modifier = Modifier.padding(40.dp)
         )
         Column(
             modifier = Modifier.padding(16.dp),

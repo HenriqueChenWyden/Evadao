@@ -56,7 +56,7 @@ fun MenuFunction5() {
                     //HistoriasScreen()
                 }
                 composable("HistoriaMoisés") {
-                    Moisés()
+                    Moises()
                 }
             }
         }
@@ -64,7 +64,7 @@ fun MenuFunction5() {
 }
 
 @Composable
-fun Moisés() {
+fun Moises() {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -85,7 +85,8 @@ fun Moisés() {
             maxLines = 1
         )
         Text(
-            text = "Moisés, legislador e profeta de Israel, foi escolhido por Deus para libertar seu povo da escravidão no Egito. Nascido de pais israelitas, foi colocado num cestinho no rio para escapar da sentença de morte e resgatado pela filha do Faraó. Após matar um egípcio, fugiu para Midiã, casou-se com Zípora e se tornou pastor. Quarenta anos depois, Deus o chamou para liderar Israel. Moisés conduziu o povo, recebeu os Dez Mandamentos no Monte Sinai, escreveu os cinco primeiros livros da Bíblia e morreu no monte Nebo, às portas de Canaã.\n",
+            text = "Moisés, legislador e profeta de Israel, foi escolhido por Deus para libertar seu povo da escravidão no Egito. Nascido de pais israelitas, foi colocado num cestinho no rio para escapar da sentença de morte e resgatado pela filha do Faraó." +
+                    " Após matar um egípcio, fugiu para Midiã, casou-se com Zípora e se tornou pastor. Quarenta anos depois, Deus o chamou para liderar Israel. Moisés conduziu o povo, recebeu os Dez Mandamentos no Monte Sinai, escreveu os cinco primeiros livros da Bíblia e morreu no monte Nebo, às portas de Canaã.\n",
             color = Color.Black,
             fontWeight = FontWeight.Normal,
             fontStyle = FontStyle.Normal,
@@ -103,10 +104,10 @@ val customFontFamilyMoises = FontFamily(
 
 @Preview(showBackground = true)
 @Composable
-fun PreviewTelaMoisés() {
+fun PreviewTelaMoises() {
     EvadãoTheme {
         Surface {
-            Moisés()
+            Moises()
         }
     }
 }

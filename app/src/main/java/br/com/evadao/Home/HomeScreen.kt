@@ -42,7 +42,7 @@ import br.com.evadao.Histórias.Davi
 import br.com.evadao.Histórias.HistoriaSelection
 import br.com.evadao.Histórias.Isaque
 import br.com.evadao.Histórias.Jó
-import br.com.evadao.Histórias.Moisés
+import br.com.evadao.Histórias.Moises
 import br.com.evadao.Oracao.AveMaria
 import br.com.evadao.Oracao.Credo
 import br.com.evadao.Oracao.Gloria
@@ -107,7 +107,7 @@ fun HomeScreen() {
                     Jó()
                 }
                 composable("HistoriaMoisés"){
-                    Moisés()
+                    Moises()
                 }
                 composable("EvadaoSobre"){
                     EvadaoSobre().SobreScreen()

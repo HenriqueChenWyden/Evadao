@@ -74,7 +74,7 @@ fun NavigationSelection() {
                     Jó()
                 }
                 composable("HistoriaMoisés") {
-                    Moisés()
+                    Moises()
                 }
             }
         }
@@ -90,7 +90,7 @@ fun HistoriaSelection(navController: NavController) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Top
     ) {
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(90.dp))
         Text(
             text = "Histórias",
             color = Color.Black,
@@ -98,7 +98,7 @@ fun HistoriaSelection(navController: NavController) {
             fontStyle = FontStyle.Normal,
             fontFamily = FontFamily.SansSerif,
             fontSize = 40.sp,
-            modifier = Modifier.padding(30.dp)
+            modifier = Modifier.padding(20.dp)
         )
         Column(
             modifier = Modifier.padding(16.dp),
@@ -192,10 +192,11 @@ fun AplicaçãoHome() {
 
 @Preview(showBackground = true)
 @Composable
-fun AplicacaoSelectionOracao() {
+fun AplicacaoSelectionHistoria() {
     EvadãoTheme {
         Surface {
             HistoriaSelection(navController = rememberNavController())
+            AppBarTop()
         }
     }
 }
