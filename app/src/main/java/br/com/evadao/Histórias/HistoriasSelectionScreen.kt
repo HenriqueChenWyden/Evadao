@@ -1,4 +1,4 @@
-package br.com.evadao.Oracao
+package br.com.evadao.Histórias
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.background
@@ -61,20 +61,20 @@ fun NavigationSelection() {
                 composable("historias_screen") {
                     // HistoriasScreen()
                 }
-                composable("pai_nosso_screen"){
-                    PaiNosso()
+                composable("HistoriaAbraao"){
+                    Abraão()
                 }
-                composable("ave_maria_screen") {
-                    AveMaria()
+                composable("HistoriaDavi") {
+                    Davi()
                 }
-                composable("sinal_cruz_screen") {
-                    SinalCruz()
+                composable("HistoriaIsaque") {
+                    Isaque()
                 }
-                composable("credo_screen"){
-                    Credo()
+                composable("HistoriaJó"){
+                    Jó()
                 }
-                composable("gloria_screen") {
-                    Gloria()
+                composable("HistoriaMoisés") {
+                    Moises()
                 }
             }
         }
@@ -82,7 +82,7 @@ fun NavigationSelection() {
 }
 
 @Composable
-fun OracaoSelection(navController: NavController) {
+fun HistoriaSelection(navController: NavController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -90,15 +90,15 @@ fun OracaoSelection(navController: NavController) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Top
     ) {
-        Spacer(modifier = Modifier.height(80.dp))
+        Spacer(modifier = Modifier.height(90.dp))
         Text(
-            text = "Escolha a sua oração",
+            text = "Histórias",
             color = Color.Black,
             fontWeight = FontWeight.Normal,
             fontStyle = FontStyle.Normal,
             fontFamily = FontFamily.SansSerif,
-            fontSize = 30.sp,
-            modifier = Modifier.padding(40.dp)
+            fontSize = 40.sp,
+            modifier = Modifier.padding(20.dp)
         )
         Column(
             modifier = Modifier.padding(16.dp),
@@ -106,17 +106,17 @@ fun OracaoSelection(navController: NavController) {
         ) {
             RectangleButton(
                 buttonText = "",
-                label = "Pai-Nosso",
+                label = "Abraão",
                 colorResourceId = R.color.marrom_ciclista,
             ) {
-                navController.navigate("pai_nosso_screen")
+                navController.navigate("HistoriaAbraao")
             }
             RectangleButton(
                 buttonText = "",
-                label = "Ave-Maria",
+                label = "Davi",
                 colorResourceId = R.color.marrom_ciclista,
             ) {
-                navController.navigate("ave_maria_screen")
+                navController.navigate("HistoriaDavi")
             }
         }
         Spacer(modifier = Modifier.height(8.dp))
@@ -127,26 +127,26 @@ fun OracaoSelection(navController: NavController) {
         ) {
             RectangleButton(
                 buttonText = "",
-                label = "Sinal da Cruz",
+                label = "Isaque",
                 colorResourceId = R.color.marrom_ciclista,
             ) {
-                navController.navigate("sinal_cruz_screen")
+                navController.navigate("HistoriaIsaque")
             }
             RectangleButton(
                 buttonText = "",
-                label = "Credo",
+                label = "Moisés",
                 colorResourceId = R.color.marrom_ciclista,
             ) {
-                navController.navigate("credo_screen")
+                navController.navigate("HistóriaMoisés")
             }
         }
         Spacer(modifier = Modifier.height(8.dp))
         RectangleButton(
             buttonText = "",
-            label = "Glória",
+            label = "Jó",
             colorResourceId = R.color.marrom_ciclista,
         ) {
-            navController.navigate("gloria_screen")
+            navController.navigate("HistoriaJó")
         }
     }
 }
@@ -192,10 +192,11 @@ fun AplicaçãoHome() {
 
 @Preview(showBackground = true)
 @Composable
-fun AplicacaoSelectionOracao() {
+fun AplicacaoSelectionHistoria() {
     EvadãoTheme {
         Surface {
-            OracaoSelection(navController = rememberNavController())
+            HistoriaSelection(navController = rememberNavController())
+            AppBarTop()
         }
     }
 }

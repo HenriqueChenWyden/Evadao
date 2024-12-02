@@ -1,5 +1,6 @@
 package br.com.evadao.Home
 
+import EvadaoSobre
 import android.annotation.SuppressLint
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -36,6 +37,12 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import br.com.evadao.AppBarTop
 import br.com.evadao.BottomAppBar
+import br.com.evadao.Histórias.Abraão
+import br.com.evadao.Histórias.Davi
+import br.com.evadao.Histórias.HistoriaSelection
+import br.com.evadao.Histórias.Isaque
+import br.com.evadao.Histórias.Jó
+import br.com.evadao.Histórias.Moises
 import br.com.evadao.Oracao.AveMaria
 import br.com.evadao.Oracao.Credo
 import br.com.evadao.Oracao.Gloria
@@ -84,6 +91,27 @@ fun HomeScreen() {
                 composable("gloria_screen") {
                     Gloria()
                 }
+                composable("HistoriaSelectionScreen"){
+                    HistoriaSelection(navController = navController)
+                }
+                composable("HistoriaAbraao"){
+                    Abraão()
+                }
+                composable("HistoriaDavi"){
+                    Davi()
+                }
+                composable("HistoriaIsaque"){
+                    Isaque()
+                }
+                composable("HistoriaJó"){
+                    Jó()
+                }
+                composable("HistoriaMoisés"){
+                    Moises()
+                }
+                composable("EvadaoSobre"){
+                    EvadaoSobre().SobreScreen()
+                }
             }
         }
     )
@@ -127,7 +155,7 @@ fun Home(navController: NavController) {
                     label = "História",
                     colorResourceId = R.color.marrom_ciclista,
                     imageResId = R.drawable.livro
-                ) { /* Button 2 action */ }
+                ) {navController.navigate("HistoriaSelectionScreen")}
             }
             Spacer(modifier = Modifier.height(8.dp))
             Row(
@@ -146,7 +174,7 @@ fun Home(navController: NavController) {
                     label = "Sobre",
                     colorResourceId = R.color.marrom_ciclista,
                     imageResId = R.drawable.info
-                ) { /* Button 4 action */ }
+                ) {navController.navigate("EvadaoSobre")}
             }
         }
     }
