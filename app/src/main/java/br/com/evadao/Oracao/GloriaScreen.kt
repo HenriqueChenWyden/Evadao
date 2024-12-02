@@ -69,7 +69,7 @@ fun Gloria() {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Top
     ) {
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(50.dp))
         Text(
             text = "Gloria",
             color = Color.Black,

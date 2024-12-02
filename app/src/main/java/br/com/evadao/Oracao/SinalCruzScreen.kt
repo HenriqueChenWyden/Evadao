@@ -69,16 +69,16 @@ fun SinalCruz() {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Top
     ) {
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(50.dp))
         Text(
             text = "Sinal da Cruz",
             color = Color.Black,
             fontWeight = FontWeight.Bold,
             fontStyle = FontStyle.Normal,
             fontFamily = customFontFamilyCruz,
-            fontSize = 25.sp,
+            fontSize = 32.sp,
             modifier = Modifier
-                .padding(120.dp),
+                .padding(80.dp),
             maxLines = 1
         )
         Text(
@@ -89,7 +89,7 @@ fun SinalCruz() {
             fontFamily = FontFamily.SansSerif,
             fontSize = 20.sp,
             modifier = Modifier
-                .padding(16.dp)
+                .padding(20.dp)
         )
     }
 }
