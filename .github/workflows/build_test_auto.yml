@@ -9,7 +9,7 @@ on:
         default: 'teste-build'
 
 jobs:
-
+# Build o projeto via gradle
   build-gradle:
     name: Build
     runs-on: ubuntu-latest
@@ -36,7 +36,7 @@ jobs:
       
       - name: Executando a Build no Projeto
         run: ./gradlew build
-
+# Testa o projeto via Gradle
   test-gradle:
     name: Testes
     runs-on: ubuntu-latest
@@ -55,7 +55,7 @@ jobs:
 
       - name: Rodando os Testes
         run: ./gradlew test
-
+# Envia o resultado usando artifact v4 (latest)
   upload-gradle:
     name: Upload dos Resultados
     runs-on: ubuntu-latest
@@ -67,4 +67,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Package
-          path: build/libs
+          path: app/build/test-results/testReleaseUnitTest
