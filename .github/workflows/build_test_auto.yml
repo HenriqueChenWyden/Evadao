@@ -54,7 +54,14 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Rodando os Testes
-        run: ./gradlew test
+        run: ./gradlew test --info
+
+      - name: Realizando Upload dos Artefatos
+        uses: actions/upload-artifact@v4
+        with:
+          name: Test Results
+          path: '**/build/test-results/**/*.xml'
+
 # Envia o resultado usando artifact v4 (latest)
   upload-gradle:
     name: Upload dos Resultados
