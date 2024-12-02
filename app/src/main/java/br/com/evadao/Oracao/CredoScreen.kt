@@ -52,9 +52,6 @@ fun MenuFunction3() {
                 composable("versiculos_screen") {
                     VersiculosScreen().Aplicacao()
                 }
-                composable("historias_screen") {
-                    //HistoriasScreen()
-                }
                 composable("credo_screen") {
                     Credo()
                 }

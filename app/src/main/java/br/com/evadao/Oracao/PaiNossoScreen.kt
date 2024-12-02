@@ -52,9 +52,6 @@ fun MenuFunction() {
                 composable("versiculos_screen") {
                     VersiculosScreen().Aplicacao()
                 }
-                composable("historias_screen") {
-                    //HistoriasScreen()
-                }
                 composable("pai_nosso_screen") {
                     PaiNosso()
                 }

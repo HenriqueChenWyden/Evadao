@@ -137,7 +137,7 @@ fun HistoriaSelection(navController: NavController) {
                 label = "Moisés",
                 colorResourceId = R.color.marrom_ciclista,
             ) {
-                navController.navigate("HistóriaMoisés")
+                navController.navigate("HistoriaMoisés")
             }
         }
         Spacer(modifier = Modifier.height(8.dp))

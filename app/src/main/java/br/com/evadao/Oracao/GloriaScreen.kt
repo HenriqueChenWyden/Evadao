@@ -52,9 +52,6 @@ fun MenuFunction4() {
                 composable("versiculos_screen") {
                     VersiculosScreen().Aplicacao()
                 }
-                composable("historias_screen") {
-                    //HistoriasScreen()
-                }
                 composable("gloria_screen") {
                     Gloria()
                 }

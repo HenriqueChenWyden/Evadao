@@ -52,9 +52,6 @@ fun MenuFunction2() {
                 composable("versiculos_screen") {
                     VersiculosScreen().Aplicacao()
                 }
-                composable("historias_screen") {
-                    //HistoriasScreen()
-                }
                 composable("sinal_cruz_screen") {
                     SinalCruz()
                 }
