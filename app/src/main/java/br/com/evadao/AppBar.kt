@@ -92,7 +92,7 @@ fun BottomAppBar(navController: NavController) {
                     contentDescription = "Book",
                     text = "Histórias",
                     onClick = {
-                        Toast.makeText(context, "Histórias clicado!", Toast.LENGTH_SHORT).show()
+                        navController.navigate("HistoriaSelectionScreen")
                     }
                 )
                 IconWithText(

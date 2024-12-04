@@ -52,9 +52,6 @@ fun MenuFunction1() {
                 composable("versiculos_screen") {
                     VersiculosScreen().Aplicacao()
                 }
-                composable("historias_screen") {
-                    //HistoriasScreen()
-                }
                 composable("ave_maria_screen") {
                     AveMaria()
                 }
@@ -72,7 +69,7 @@ fun AveMaria() {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Top
     ) {
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(50.dp))
         Text(
             text = "Ave-Maria",
             color = Color.Black,
@@ -81,7 +78,7 @@ fun AveMaria() {
             fontFamily = customFontFamilyAve,
             fontSize = 32.sp,
             modifier = Modifier
-                .padding(120.dp),
+                .padding(80.dp),
             maxLines = 1
         )
         Text(
@@ -92,7 +89,7 @@ fun AveMaria() {
             fontFamily = FontFamily.SansSerif,
             fontSize = 20.sp,
             modifier = Modifier
-                .padding(16.dp)
+                .padding(20.dp)
         )
     }
 }
@@ -106,7 +103,7 @@ val customFontFamilyAve = FontFamily(
 fun PreviewTelaAve() {
     EvadãoTheme {
         Surface {
-            PaiNosso()
+            AveMaria()
         }
     }
 }

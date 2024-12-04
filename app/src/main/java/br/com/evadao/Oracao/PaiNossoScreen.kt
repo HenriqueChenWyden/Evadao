@@ -52,9 +52,6 @@ fun MenuFunction() {
                 composable("versiculos_screen") {
                     VersiculosScreen().Aplicacao()
                 }
-                composable("historias_screen") {
-                    //HistoriasScreen()
-                }
                 composable("pai_nosso_screen") {
                     PaiNosso()
                 }
@@ -72,7 +69,7 @@ fun PaiNosso() {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Top
     ) {
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(50.dp))
         Text(
             text = "Pai-Nosso",
             color = Color.Black,
@@ -81,7 +78,7 @@ fun PaiNosso() {
             fontFamily = customFontFamily,
             fontSize = 32.sp,
             modifier = Modifier
-                .padding(120.dp),
+                .padding(90.dp),
             maxLines = 1
         )
         Text(
@@ -92,7 +89,7 @@ fun PaiNosso() {
             fontFamily = FontFamily.SansSerif,
             fontSize = 20.sp,
             modifier = Modifier
-                .padding(16.dp)
+                .padding(13.dp)
         )
     }
 }

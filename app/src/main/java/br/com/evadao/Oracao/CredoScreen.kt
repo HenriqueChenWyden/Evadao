@@ -52,9 +52,6 @@ fun MenuFunction3() {
                 composable("versiculos_screen") {
                     VersiculosScreen().Aplicacao()
                 }
-                composable("historias_screen") {
-                    //HistoriasScreen()
-                }
                 composable("credo_screen") {
                     Credo()
                 }
@@ -72,14 +69,14 @@ fun Credo() {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Top
     ) {
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(3.dp))
         Text(
             text = "Credo",
             color = Color.Black,
             fontWeight = FontWeight.Bold,
             fontStyle = FontStyle.Normal,
             fontFamily = customFontFamilyCredo,
-            fontSize = 32.sp,
+            fontSize = 40.sp,
             modifier = Modifier
                 .padding(120.dp),
             maxLines = 1
@@ -106,7 +103,7 @@ val customFontFamilyCredo = FontFamily(
 fun PreviewTelaCredo() {
     EvadãoTheme {
         Surface {
-            SinalCruz()
+            Credo()
         }
     }
 }
